@@ -1,4 +1,5 @@
 using dot_net_core_identity_udy.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -12,7 +13,7 @@ namespace dot_net_core_identity_udy.Controllers
         {
             _logger = logger;
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View();

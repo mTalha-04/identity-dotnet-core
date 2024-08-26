@@ -11,5 +11,8 @@ namespace dot_net_core_identity_udy.Models
         [Required]
         [DataType(DataType.Password, ErrorMessage ="Incorrect or Missing Password")]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "Role is required")]
+        public string Role { get; set; }
     }
 }

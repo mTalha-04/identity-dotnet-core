@@ -25,7 +25,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Lockout.MaxFailedAccessAttempts = 3;
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
 
-    options.SignIn.RequireConfirmedEmail = true;
+    options.SignIn.RequireConfirmedEmail = false;
 
 });
 
@@ -35,8 +35,9 @@ builder.Services.AddSingleton<IEmailSender, SmtpEmailSender>();
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Home/SignIn";
-    options.AccessDeniedPath= "/Home/AccessDenied";
-    options.ExpireTimeSpan = TimeSpan.FromHours(1);
+    options.AccessDeniedPath= "/Identity/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromHours(10);
+     
 });
 
 // Add services to the container.
